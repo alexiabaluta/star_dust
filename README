@@ -1,0 +1,54 @@
+# Copyright 2020 Alexia-Elena Baluta 311CA
+
+PROGRAMAREA CALCULATOARELOR
+Tema #2 Alocare dinamica
+
+...............................................................................
+Task 1
+    Se citesc datele hartii intr-o matrice de int-uri. Conturul hartii este
+    format din prima linie, ultima linie si primul si ultimul byte de pe
+    fiecare linie de la 1 la n-1. Valoarea bytes-ilor se aduna la sum, care
+    este trimisa prin parametru la functia add_bytes. Functia face un cast de
+    char* la o portiune din linie. Cum tipul char are dimensiunea de 1 byte,
+    lucrul cu char* este echivalent cu lucrul pe bytes. Numarul de bytes se 
+    calculeaza printr-o formula. Se calculeaza si se afiseaza media aritmetica
+    cu precizia dorita. 
+
+...............................................................................
+Task 2
+    Se citesc datele si se trimit ca parametrii in functiile specifice 
+    operatiei dorite:
+        MODIFY
+    Se verifica daca blocul care trebuie modificat nu iese din memorie. Daca
+    da, se calculeaza prin formula noua dimensiunea si se face realocarea de
+    memorie, initializandu-se noul bloc cu 0. Se face un cast dupa tipul de
+    date dorit si se apeleaza functia mem_cpy care copiaza unbloc de date
+    peste un alt bloc de date.
+        SWAP
+    Se pointeaza un pointer char* la primul byte si cum tipurile de date au un
+    numar cunocut (si mic) de bytes, se face o simpla interschimbare cu functia
+    swap_bytes.
+        DELETE
+    Se face un cast si se pointeaza un pointer de tipul dorit la linia care
+    urmeaza sa fie modificata. Elementul de pe indicele data_index primeste 
+    valoarea 0. 
+
+    OBS: Atunci cand o functie ia ca parametru un vector sub forma unui 
+    pointer, nu se primesc si informatii referitoare la memoria alocata. =>
+    sizeof(arr) nu functioneaza in functie.
+    OBS: Nu se pot declara variabile dupa un label, inuntrul unui switch.
+
+
+...............................................................................
+Task 3
+    Se aplica algoritmul flood fill care parcurge recursiv toti bytes-ii 0
+    vecini si ii marcheaza ca parcursi. Pentru marcaje se foloseste o alta
+    matrice, black_holes, oglinda cele initiale, doar ca initializata cu 0. Se
+    evita astfel rescrierea matricei originale. In momentul in care s-a ajuns
+    pe un element se marcheaza cu 1 pe black_holes si se numara intr-un contor 
+    cate gauri negre s-au gasit pana in acel moment. Se utilizeaza un vector de
+    deplasare, pentru a generaliza miscarea pe o directie. Se verifica daca 
+    elementul care urmeaza sa fie parcurs este sau nu in interiorul matricei, 
+    daca este o gaura neagra si daca nu a mai fost parcurs.
+
+...............................................................................
